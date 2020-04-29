@@ -1,0 +1,140 @@
+C:\Users\Рамиль Г\source\repos\Carma\Carma\bin\Debug\netcoreapp3.1\Carma.exe
+C:\Users\Рамиль Г\source\repos\Carma\Carma\bin\Debug\netcoreapp3.1\Carma.deps.json
+C:\Users\Рамиль Г\source\repos\Carma\Carma\bin\Debug\netcoreapp3.1\Carma.runtimeconfig.json
+C:\Users\Рамиль Г\source\repos\Carma\Carma\bin\Debug\netcoreapp3.1\Carma.runtimeconfig.dev.json
+C:\Users\Рамиль Г\source\repos\Carma\Carma\bin\Debug\netcoreapp3.1\Carma.dll
+C:\Users\Рамиль Г\source\repos\Carma\Carma\bin\Debug\netcoreapp3.1\Carma.pdb
+C:\Users\Рамиль Г\source\repos\Carma\Carma\bin\Debug\netcoreapp3.1\Discord.Net.Commands.dll
+C:\Users\Рамиль Г\source\repos\Carma\Carma\bin\Debug\netcoreapp3.1\Discord.Net.Core.dll
+C:\Users\Рамиль Г\source\repos\Carma\Carma\bin\Debug\netcoreapp3.1\Discord.Net.Rest.dll
+C:\Users\Рамиль Г\source\repos\Carma\Carma\bin\Debug\netcoreapp3.1\Discord.Net.Webhook.dll
+C:\Users\Рамиль Г\source\repos\Carma\Carma\bin\Debug\netcoreapp3.1\Discord.Net.WebSocket.dll
+C:\Users\Рамиль Г\source\repos\Carma\Carma\bin\Debug\netcoreapp3.1\EntityFramework.SqlServer.dll
+C:\Users\Рамиль Г\source\repos\Carma\Carma\bin\Debug\netcoreapp3.1\EntityFramework.dll
+C:\Users\Рамиль Г\source\repos\Carma\Carma\bin\Debug\netcoreapp3.1\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\Рамиль Г\source\repos\Carma\Carma\bin\Debug\netcoreapp3.1\Microsoft.Bcl.HashCode.dll
+C:\Users\Рамиль Г\source\repos\Carma\Carma\bin\Debug\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+C:\Users\Рамиль Г\source\repos\Carma\Carma\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.dll
+C:\Users\Рамиль Г\source\repos\Carma\Carma\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\Рамиль Г\source\repos\Carma\Carma\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Relational.dll
+C:\Users\Рамиль Г\source\repos\Carma\Carma\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.SqlServer.dll
+C:\Users\Рамиль Г\source\repos\Carma\Carma\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Caching.Abstractions.dll
+C:\Users\Рамиль Г\source\repos\Carma\Carma\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Caching.Memory.dll
+C:\Users\Рамиль Г\source\repos\Carma\Carma\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.dll
+C:\Users\Рамиль Г\source\repos\Carma\Carma\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\Users\Рамиль Г\source\repos\Carma\Carma\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.Binder.dll
+C:\Users\Рамиль Г\source\repos\Carma\Carma\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\Рамиль Г\source\repos\Carma\Carma\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\Рамиль Г\source\repos\Carma\Carma\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Logging.dll
+C:\Users\Рамиль Г\source\repos\Carma\Carma\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\Рамиль Г\source\repos\Carma\Carma\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Options.dll
+C:\Users\Рамиль Г\source\repos\Carma\Carma\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Primitives.dll
+C:\Users\Рамиль Г\source\repos\Carma\Carma\bin\Debug\netcoreapp3.1\Microsoft.Identity.Client.dll
+C:\Users\Рамиль Г\source\repos\Carma\Carma\bin\Debug\netcoreapp3.1\Microsoft.Win32.SystemEvents.dll
+C:\Users\Рамиль Г\source\repos\Carma\Carma\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+C:\Users\Рамиль Г\source\repos\Carma\Carma\bin\Debug\netcoreapp3.1\System.CodeDom.dll
+C:\Users\Рамиль Г\source\repos\Carma\Carma\bin\Debug\netcoreapp3.1\System.Configuration.ConfigurationManager.dll
+C:\Users\Рамиль Г\source\repos\Carma\Carma\bin\Debug\netcoreapp3.1\System.Data.SqlClient.dll
+C:\Users\Рамиль Г\source\repos\Carma\Carma\bin\Debug\netcoreapp3.1\System.Drawing.Common.dll
+C:\Users\Рамиль Г\source\repos\Carma\Carma\bin\Debug\netcoreapp3.1\System.Interactive.Async.dll
+C:\Users\Рамиль Г\source\repos\Carma\Carma\bin\Debug\netcoreapp3.1\System.Runtime.Caching.dll
+C:\Users\Рамиль Г\source\repos\Carma\Carma\bin\Debug\netcoreapp3.1\System.Security.Cryptography.ProtectedData.dll
+C:\Users\Рамиль Г\source\repos\Carma\Carma\bin\Debug\netcoreapp3.1\System.Security.Permissions.dll
+C:\Users\Рамиль Г\source\repos\Carma\Carma\bin\Debug\netcoreapp3.1\System.Windows.Extensions.dll
+C:\Users\Рамиль Г\source\repos\Carma\Carma\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\Microsoft.Data.SqlClient.dll
+C:\Users\Рамиль Г\source\repos\Carma\Carma\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\Microsoft.Data.SqlClient.dll
+C:\Users\Рамиль Г\source\repos\Carma\Carma\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp3.0\Microsoft.Win32.SystemEvents.dll
+C:\Users\Рамиль Г\source\repos\Carma\Carma\bin\Debug\netcoreapp3.1\runtimes\win-arm64\native\sni.dll
+C:\Users\Рамиль Г\source\repos\Carma\Carma\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\sni.dll
+C:\Users\Рамиль Г\source\repos\Carma\Carma\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\sni.dll
+C:\Users\Рамиль Г\source\repos\Carma\Carma\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\Рамиль Г\source\repos\Carma\Carma\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\Рамиль Г\source\repos\Carma\Carma\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp3.0\System.Drawing.Common.dll
+C:\Users\Рамиль Г\source\repos\Carma\Carma\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp3.0\System.Drawing.Common.dll
+C:\Users\Рамиль Г\source\repos\Carma\Carma\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.0\System.Runtime.Caching.dll
+C:\Users\Рамиль Г\source\repos\Carma\Carma\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Runtime.Caching.dll
+C:\Users\Рамиль Г\source\repos\Carma\Carma\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\Рамиль Г\source\repos\Carma\Carma\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp3.0\System.Windows.Extensions.dll
+C:\Users\Рамиль Г\source\repos\Carma\Carma\obj\Debug\netcoreapp3.1\Carma.csprojAssemblyReference.cache
+C:\Users\Рамиль Г\source\repos\Carma\Carma\obj\Debug\netcoreapp3.1\Carma.csproj.CoreCompileInputs.cache
+C:\Users\Рамиль Г\source\repos\Carma\Carma\obj\Debug\netcoreapp3.1\Carma.AssemblyInfoInputs.cache
+C:\Users\Рамиль Г\source\repos\Carma\Carma\obj\Debug\netcoreapp3.1\Carma.AssemblyInfo.cs
+C:\Users\Рамиль Г\source\repos\Carma\Carma\obj\Debug\netcoreapp3.1\Carma.csproj.CopyComplete
+C:\Users\Рамиль Г\source\repos\Carma\Carma\obj\Debug\netcoreapp3.1\Carma.dll
+C:\Users\Рамиль Г\source\repos\Carma\Carma\obj\Debug\netcoreapp3.1\Carma.pdb
+C:\Users\Рамиль Г\source\repos\Carma\Carma\obj\Debug\netcoreapp3.1\Carma.genruntimeconfig.cache
+C:\Users\Ramil\source\repos\Carma\Carma\bin\Debug\netcoreapp3.1\Carma.exe
+C:\Users\Ramil\source\repos\Carma\Carma\bin\Debug\netcoreapp3.1\Carma.deps.json
+C:\Users\Ramil\source\repos\Carma\Carma\bin\Debug\netcoreapp3.1\Carma.runtimeconfig.json
+C:\Users\Ramil\source\repos\Carma\Carma\bin\Debug\netcoreapp3.1\Carma.runtimeconfig.dev.json
+C:\Users\Ramil\source\repos\Carma\Carma\bin\Debug\netcoreapp3.1\Carma.dll
+C:\Users\Ramil\source\repos\Carma\Carma\bin\Debug\netcoreapp3.1\Carma.pdb
+C:\Users\Ramil\source\repos\Carma\Carma\bin\Debug\netcoreapp3.1\Discord.Net.Commands.dll
+C:\Users\Ramil\source\repos\Carma\Carma\bin\Debug\netcoreapp3.1\Discord.Net.Core.dll
+C:\Users\Ramil\source\repos\Carma\Carma\bin\Debug\netcoreapp3.1\Discord.Net.Rest.dll
+C:\Users\Ramil\source\repos\Carma\Carma\bin\Debug\netcoreapp3.1\Discord.Net.Webhook.dll
+C:\Users\Ramil\source\repos\Carma\Carma\bin\Debug\netcoreapp3.1\Discord.Net.WebSocket.dll
+C:\Users\Ramil\source\repos\Carma\Carma\bin\Debug\netcoreapp3.1\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\Ramil\source\repos\Carma\Carma\bin\Debug\netcoreapp3.1\Microsoft.Bcl.HashCode.dll
+C:\Users\Ramil\source\repos\Carma\Carma\bin\Debug\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+C:\Users\Ramil\source\repos\Carma\Carma\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.dll
+C:\Users\Ramil\source\repos\Carma\Carma\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\Ramil\source\repos\Carma\Carma\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Relational.dll
+C:\Users\Ramil\source\repos\Carma\Carma\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.SqlServer.dll
+C:\Users\Ramil\source\repos\Carma\Carma\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Caching.Abstractions.dll
+C:\Users\Ramil\source\repos\Carma\Carma\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Caching.Memory.dll
+C:\Users\Ramil\source\repos\Carma\Carma\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.dll
+C:\Users\Ramil\source\repos\Carma\Carma\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\Users\Ramil\source\repos\Carma\Carma\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.Binder.dll
+C:\Users\Ramil\source\repos\Carma\Carma\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\Ramil\source\repos\Carma\Carma\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\Ramil\source\repos\Carma\Carma\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Logging.dll
+C:\Users\Ramil\source\repos\Carma\Carma\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\Ramil\source\repos\Carma\Carma\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Options.dll
+C:\Users\Ramil\source\repos\Carma\Carma\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Primitives.dll
+C:\Users\Ramil\source\repos\Carma\Carma\bin\Debug\netcoreapp3.1\Microsoft.Identity.Client.dll
+C:\Users\Ramil\source\repos\Carma\Carma\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+C:\Users\Ramil\source\repos\Carma\Carma\bin\Debug\netcoreapp3.1\System.Configuration.ConfigurationManager.dll
+C:\Users\Ramil\source\repos\Carma\Carma\bin\Debug\netcoreapp3.1\System.Interactive.Async.dll
+C:\Users\Ramil\source\repos\Carma\Carma\bin\Debug\netcoreapp3.1\System.Runtime.Caching.dll
+C:\Users\Ramil\source\repos\Carma\Carma\bin\Debug\netcoreapp3.1\System.Security.Cryptography.ProtectedData.dll
+C:\Users\Ramil\source\repos\Carma\Carma\bin\Debug\netcoreapp3.1\System.Security.Permissions.dll
+C:\Users\Ramil\source\repos\Carma\Carma\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\Microsoft.Data.SqlClient.dll
+C:\Users\Ramil\source\repos\Carma\Carma\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\Microsoft.Data.SqlClient.dll
+C:\Users\Ramil\source\repos\Carma\Carma\bin\Debug\netcoreapp3.1\runtimes\win-arm64\native\sni.dll
+C:\Users\Ramil\source\repos\Carma\Carma\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\sni.dll
+C:\Users\Ramil\source\repos\Carma\Carma\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\sni.dll
+C:\Users\Ramil\source\repos\Carma\Carma\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.0\System.Runtime.Caching.dll
+C:\Users\Ramil\source\repos\Carma\Carma\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Runtime.Caching.dll
+C:\Users\Ramil\source\repos\Carma\Carma\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\Ramil\source\repos\Carma\Carma\obj\Debug\netcoreapp3.1\Carma.csprojAssemblyReference.cache
+C:\Users\Ramil\source\repos\Carma\Carma\obj\Debug\netcoreapp3.1\Carma.csproj.CoreCompileInputs.cache
+C:\Users\Ramil\source\repos\Carma\Carma\obj\Debug\netcoreapp3.1\Carma.AssemblyInfoInputs.cache
+C:\Users\Ramil\source\repos\Carma\Carma\obj\Debug\netcoreapp3.1\Carma.AssemblyInfo.cs
+C:\Users\Ramil\source\repos\Carma\Carma\obj\Debug\netcoreapp3.1\Carma.csproj.CopyComplete
+C:\Users\Ramil\source\repos\Carma\Carma\obj\Debug\netcoreapp3.1\Carma.dll
+C:\Users\Ramil\source\repos\Carma\Carma\obj\Debug\netcoreapp3.1\Carma.pdb
+C:\Users\Ramil\source\repos\Carma\Carma\obj\Debug\netcoreapp3.1\Carma.genruntimeconfig.cache
+C:\Users\Ramil\source\repos\Carma\Carma\bin\Debug\netcoreapp3.1\Castle.Core.dll
+C:\Users\Ramil\source\repos\Carma\Carma\bin\Debug\netcoreapp3.1\EntityFrameworkCore.Convention.dll
+C:\Users\Ramil\source\repos\Carma\Carma\bin\Debug\netcoreapp3.1\Microsoft.Data.Sqlite.dll
+C:\Users\Ramil\source\repos\Carma\Carma\bin\Debug\netcoreapp3.1\Microsoft.DotNet.PlatformAbstractions.dll
+C:\Users\Ramil\source\repos\Carma\Carma\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Sqlite.dll
+C:\Users\Ramil\source\repos\Carma\Carma\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyModel.dll
+C:\Users\Ramil\source\repos\Carma\Carma\bin\Debug\netcoreapp3.1\SQLitePCLRaw.batteries_v2.dll
+C:\Users\Ramil\source\repos\Carma\Carma\bin\Debug\netcoreapp3.1\SQLitePCLRaw.nativelibrary.dll
+C:\Users\Ramil\source\repos\Carma\Carma\bin\Debug\netcoreapp3.1\SQLitePCLRaw.core.dll
+C:\Users\Ramil\source\repos\Carma\Carma\bin\Debug\netcoreapp3.1\SQLitePCLRaw.provider.dynamic_cdecl.dll
+C:\Users\Ramil\source\repos\Carma\Carma\bin\Debug\netcoreapp3.1\System.Text.Json.dll
+C:\Users\Ramil\source\repos\Carma\Carma\bin\Debug\netcoreapp3.1\runtimes\alpine-x64\native\libe_sqlite3.so
+C:\Users\Ramil\source\repos\Carma\Carma\bin\Debug\netcoreapp3.1\runtimes\linux-arm\native\libe_sqlite3.so
+C:\Users\Ramil\source\repos\Carma\Carma\bin\Debug\netcoreapp3.1\runtimes\linux-arm64\native\libe_sqlite3.so
+C:\Users\Ramil\source\repos\Carma\Carma\bin\Debug\netcoreapp3.1\runtimes\linux-armel\native\libe_sqlite3.so
+C:\Users\Ramil\source\repos\Carma\Carma\bin\Debug\netcoreapp3.1\runtimes\linux-musl-x64\native\libe_sqlite3.so
+C:\Users\Ramil\source\repos\Carma\Carma\bin\Debug\netcoreapp3.1\runtimes\linux-x64\native\libe_sqlite3.so
+C:\Users\Ramil\source\repos\Carma\Carma\bin\Debug\netcoreapp3.1\runtimes\linux-x86\native\libe_sqlite3.so
+C:\Users\Ramil\source\repos\Carma\Carma\bin\Debug\netcoreapp3.1\runtimes\osx-x64\native\libe_sqlite3.dylib
+C:\Users\Ramil\source\repos\Carma\Carma\bin\Debug\netcoreapp3.1\runtimes\win-arm\native\e_sqlite3.dll
+C:\Users\Ramil\source\repos\Carma\Carma\bin\Debug\netcoreapp3.1\runtimes\win-arm64\native\e_sqlite3.dll
+C:\Users\Ramil\source\repos\Carma\Carma\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\e_sqlite3.dll
+C:\Users\Ramil\source\repos\Carma\Carma\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\e_sqlite3.dll
