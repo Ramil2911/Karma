@@ -7,25 +7,26 @@ using System.Text;
 using System.Linq;
 using System.ComponentModel.DataAnnotations;
 using System.Reflection;
+using System.Threading;
 using Discord.Commands;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Carma
 {
-    class Program
+    internal class Program
     {
         private CommandService _commands;
         private DiscordSocketClient _client;
         private IServiceProvider _services;
-        private ApplicationContext db;
-        private Random rand = new Random();
+        private ApplicationContext _db;
+        private Random _rand = new Random();
 
-        static void Main(string[] args) => new Program().MainAsync().GetAwaiter().GetResult(); //use TAP
+        private static void Main(string[] args) => new Program().MainAsync().GetAwaiter().GetResult(); //use TAP
 
         private async Task MainAsync()
         {
-            db = new ApplicationContext();
+            _db = new ApplicationContext();
             _client = new DiscordSocketClient();
             _commands = new CommandService();
             _services = BuildServiceProvider();
@@ -51,7 +52,7 @@ namespace Carma
         private IServiceProvider BuildServiceProvider() => new ServiceCollection()
             .AddSingleton(_client)
             .AddSingleton(_commands)
-            .AddSingleton<ApplicationContext>(db)
+            .AddSingleton(_db)
             .BuildServiceProvider();
 
         private async Task InstallCommandsAsync()
@@ -76,14 +77,14 @@ namespace Carma
                 services: _services);
         }
 
+
         private async Task HandleCommandAsync(SocketMessage messageParam)
         {
             // Don't process the command if it was a system message
-            var message = messageParam as SocketUserMessage;
-            if (message == null) return;
+            if (!(messageParam is SocketUserMessage message)) return;
 
             // Create a number to track where the prefix ends and the command begins
-            int argPos = 0;
+            var argPos = 0;
 
             // Determine if the message is a command based on the prefix and make sure no bots trigger commands
             if (!(message.HasStringPrefix("k.", ref argPos) ||
@@ -92,8 +93,8 @@ namespace Carma
             {
                 if (!message.Author.IsBot)
                 {
-                    await message.AddReactionAsync(new Emoji("⬆️"));
-                    await message.AddReactionAsync(new Emoji("⬇️"));
+                    //message.AddReactionAsync(new Emoji("⬆️"));
+                    //message.AddReactionAsync(new Emoji("⬇️"));
                 }
                 return;
             }
@@ -140,11 +141,9 @@ namespace Carma
         {
             await Task.Run(() =>
             {
-                if (!user.IsBot & db.Persons.Any(x => x.Id == user.Id))
-                {
-                    db.Persons.Add(new Person() {karma = 0, Id = user.Id});
-                    db.SaveChanges();
-                }
+                if (!(!user.IsBot & _db.Persons.Any(x => x.Id == user.Id))) return;
+                _db.Persons.Add(new Person() {Karma = 0, Id = user.Id});
+                _db.SaveChanges();
             });
         }
 
@@ -152,15 +151,13 @@ namespace Carma
         {
             await Task.Run(() =>
             {
-                if (!user.IsBot & db.Persons.Any(x => x.Id == user.Id))
-                {
-                    db.Persons.Remove(new Person() {Id = user.Id});
-                    db.SaveChanges();
-                }
+                if (!(!user.IsBot & _db.Persons.Any(x => x.Id == user.Id))) return;
+                _db.Persons.Remove(new Person() {Id = user.Id});
+                _db.SaveChanges();
             });
         }
 
-        private Task Log(LogMessage message)
+        private static Task Log(LogMessage message)
         {
             Console.WriteLine(message.ToString());
             return Task.CompletedTask;
@@ -172,37 +169,35 @@ namespace Carma
             await Task.Run(() =>
             {
                 if (_client.GetUser(reaction.UserId).IsBot) return;
-                if ((reaction.Emote.Name == "⬆️" || reaction.Emote.Name == ":RankUp:" ||
-                     reaction.Emote.Name == ":arrow_up:") & reaction.UserId != reaction.Channel
+                if (!((reaction.Emote.Name == "⬆️" || reaction.Emote.Name == ":RankUp:" ||
+                       reaction.Emote.Name == ":arrow_up:") & reaction.UserId != reaction.Channel
                     .GetMessageAsync(reaction.MessageId, CacheMode.AllowDownload, RequestOptions.Default).Result
-                    .Author.Id)
+                    .Author.Id)) return;
+                Console.WriteLine("Adding Karma!");
+                if (_db.Persons.Any(x =>
+                    x.Id == Convert.ToUInt64(reaction.Channel
+                        .GetMessageAsync(reaction.MessageId, CacheMode.AllowDownload, RequestOptions.Default).Result
+                        .Author.Id)))
                 {
-                    Console.WriteLine("Adding Karma!");
-                    if (db.Persons.Any(x =>
-                        x.Id == Convert.ToUInt64(reaction.Channel
-                            .GetMessageAsync(reaction.MessageId, CacheMode.AllowDownload, RequestOptions.Default).Result
-                            .Author.Id)))
+                    _db.Persons.First(x =>
+                        x.Id == Convert.ToUInt64(reaction.Channel.GetMessageAsync(reaction.MessageId,
+                            CacheMode.AllowDownload, RequestOptions.Default).Result.Author.Id)).Karma++;
+                    _db.SaveChanges();
+                }
+                else
+                {
+                    Console.WriteLine("Creating db data!");
+                    _db.Persons.Add(new Person()
                     {
-                        db.Persons.First(x =>
-                            x.Id == Convert.ToUInt64(reaction.Channel.GetMessageAsync(reaction.MessageId,
-                                CacheMode.AllowDownload, RequestOptions.Default).Result.Author.Id)).karma++;
-                        db.SaveChanges();
-                    }
-                    else
-                    {
-                        Console.WriteLine("Creating db data!");
-                        db.Persons.Add(new Person()
-                        {
-                            karma = 0,
-                            Id = Convert.ToUInt64(reaction.Channel.GetMessageAsync(reaction.MessageId,
-                                CacheMode.AllowDownload, RequestOptions.Default).Result.Author.Id)
-                        });
-                        db.SaveChanges();
-                        db.Persons.First(x =>
-                            x.Id == Convert.ToUInt64(reaction.Channel.GetMessageAsync(reaction.MessageId,
-                                CacheMode.AllowDownload, RequestOptions.Default).Result.Author.Id)).karma++;
-                        db.SaveChanges();
-                    }
+                        Karma = 0,
+                        Id = Convert.ToUInt64(reaction.Channel.GetMessageAsync(reaction.MessageId,
+                            CacheMode.AllowDownload, RequestOptions.Default).Result.Author.Id)
+                    });
+                    _db.SaveChanges();
+                    _db.Persons.First(x =>
+                        x.Id == Convert.ToUInt64(reaction.Channel.GetMessageAsync(reaction.MessageId,
+                            CacheMode.AllowDownload, RequestOptions.Default).Result.Author.Id)).Karma++;
+                    _db.SaveChanges();
                 }
             });
         }
@@ -213,49 +208,46 @@ namespace Carma
             await Task.Run(() =>
             {
                 Console.WriteLine(
-                    $"Reaction added!- {reaction.User} at {(reaction.Channel as SocketGuildChannel).Guild.Name} added {reaction.Emote.Name}"); //log this!
-                if ((reaction.Emote.Name == "⬇️" | reaction.Emote.Name == ":RankDown:") & reaction.UserId !=
+                    $"Reaction added!- {reaction.User} at {((SocketGuildChannel) reaction.Channel).Guild.Name} added {reaction.Emote.Name}"); //log this!
+                if (!((reaction.Emote.Name == "⬇️" | reaction.Emote.Name == ":RankDown:") & reaction.UserId !=
                     reaction.Channel
                         .GetMessageAsync(reaction.MessageId, CacheMode.AllowDownload, RequestOptions.Default).Result
-                        .Author.Id)
+                        .Author.Id)) return;
+                if (_db.Persons.Any(x =>
+                    x.Id == Convert.ToUInt64(reaction.Channel
+                        .GetMessageAsync(reaction.MessageId, CacheMode.AllowDownload, RequestOptions.Default).Result
+                        .Author.Id)))
                 {
-                    if (db.Persons.Any(x =>
-                        x.Id == Convert.ToUInt64(reaction.Channel
-                            .GetMessageAsync(reaction.MessageId, CacheMode.AllowDownload, RequestOptions.Default).Result
-                            .Author.Id)))
+                    _db.Persons.First(x =>
+                        x.Id == Convert.ToUInt64(reaction.Channel.GetMessageAsync(reaction.MessageId,
+                            CacheMode.AllowDownload, RequestOptions.Default).Result.Author.Id)).Karma--;
+                    _db.SaveChanges();
+                }
+                else
+                {
+                    Console.WriteLine("Creating db data!");
+                    _db.Persons.Add(new Person()
                     {
-                        db.Persons.First(x =>
-                            x.Id == Convert.ToUInt64(reaction.Channel.GetMessageAsync(reaction.MessageId,
-                                CacheMode.AllowDownload, RequestOptions.Default).Result.Author.Id)).karma--;
-                        db.SaveChanges();
-                    }
-                    else
-                    {
-                        Console.WriteLine("Creating db data!");
-                        db.Persons.Add(new Person()
-                        {
-                            karma = 0,
-                            Id = Convert.ToUInt64(reaction.Channel.GetMessageAsync(reaction.MessageId,
-                                CacheMode.AllowDownload, RequestOptions.Default).Result.Author.Id)
-                        });
-                        db.SaveChanges();
-                        db.Persons.First(x =>
-                            x.Id == Convert.ToUInt64(reaction.Channel.GetMessageAsync(reaction.MessageId,
-                                CacheMode.AllowDownload, RequestOptions.Default).Result.Author.Id)).karma--;
-                        db.SaveChanges();
-                    }
+                        Karma = 0,
+                        Id = Convert.ToUInt64(reaction.Channel.GetMessageAsync(reaction.MessageId,
+                            CacheMode.AllowDownload, RequestOptions.Default).Result.Author.Id)
+                    });
+                    _db.SaveChanges();
+                    _db.Persons.First(x =>
+                        x.Id == Convert.ToUInt64(reaction.Channel.GetMessageAsync(reaction.MessageId,
+                            CacheMode.AllowDownload, RequestOptions.Default).Result.Author.Id)).Karma--;
+                    _db.SaveChanges();
                 }
             });
         }
     }
 
     public class CommandModule : ModuleBase<SocketCommandContext>
-    {
-        private ApplicationContext db;
+    { 
 
         public CommandModule(IServiceProvider services)
         {
-            db = services.GetService<ApplicationContext>();
+            
         }
 
         [Command("sample")]
@@ -268,34 +260,33 @@ namespace Carma
             await ReplyAsync("", false, embed.Build());
         }
 
-        [Command("karma")]
-        public async Task Karma(List<IUser> users)
+        [Command("karma", RunMode = RunMode.Async)]
+        public async Task Karma(IEnumerable<IUser> users)
         {
-            Console.WriteLine("Getting karma;");
-            foreach (IUser user in users)
+            foreach (var user in users)
             {
-
+                var db = new ApplicationContext();
                 if (user.Id == Context.Client.CurrentUser.Id) continue;
                 if (db.Persons.Any(x => x.Id == user.Id))
                 {
                     var embed = new EmbedBuilder();
                     embed.WithTitle("Карма")
                         .WithColor(Color.Blue)
-                        .WithDescription($"{user.Username}'s karma: {db.Persons.First(x => x.Id == user.Id).karma}");
+                        .WithDescription($"{user.Username}'s karma: {db.Persons.First(x => x.Id == user.Id).Karma}");
                     await ReplyAsync("", false, embed.Build());
                 }
                 else
                 {
                     if (!user.IsBot & !db.Persons.Any(x => x.Id == user.Id))
                     {
-                        await db.Persons.AddAsync(new Person() {karma = 0, Id = user.Id});
+                        await db.Persons.AddAsync(new Person() {Karma = 0, Id = user.Id});
                         await db.SaveChangesAsync();
                     }
 
                     var embed = new EmbedBuilder();
                     embed.WithTitle("Карма")
                         .WithColor(Color.Blue)
-                        .WithDescription($"{user.Username}'s karma: {db.Persons.First(x => x.Id == user.Id).karma}");
+                        .WithDescription($"{user.Username}'s karma: {db.Persons.First(x => x.Id == user.Id).Karma}");
                     await ReplyAsync("", false, embed.Build());
                 }
             }
@@ -305,6 +296,7 @@ namespace Carma
         [Command("help", RunMode = RunMode.Async)]
         public async Task Help()
         {
+            var db = new ApplicationContext();
             var embed = new EmbedBuilder();
             embed.WithTitle("Помощь")
                 .WithAuthor(Context.Client.CurrentUser)
@@ -318,14 +310,15 @@ namespace Carma
             await ReplyAsync("", false, embed.Build());
         }
 
-        [Command("lottery")]
+        [Command("lottery", RunMode = RunMode.Async)]
         public async Task Lottery()
         {
+            var db = new ApplicationContext();
             var embed = new EmbedBuilder();
             embed.WithTitle("Лотерея")
                 .WithColor(Color.Blue);
             var rand = new Random();
-            if (db.Persons.First(x => x.Id == Context.User.Id).karma == 0)
+            if (db.Persons.First(x => x.Id == Context.User.Id).Karma == 0)
             {
                 embed.WithDescription("Вы не можете учатсвовать в лотерее, так как ваша карма равна 0!");
                 await ReplyAsync("", false, embed.Build());
@@ -340,19 +333,19 @@ namespace Carma
                 case 3:
                 case 4:
                 case 5:
-                    if (db.Persons.First(x => x.Id == Context.User.Id).karma < 0)
+                    if (db.Persons.First(x => x.Id == Context.User.Id).Karma < 0)
                     {
                         embed.WithDescription("You lose! Karma * 3!");
                         await ReplyAsync("", false, embed.Build());
-                        db.Persons.First(x => x.Id == Context.User.Id).karma *= 3;
+                        db.Persons.First(x => x.Id == Context.User.Id).Karma *= 3;
                         await db.SaveChangesAsync();
                     }
                     else
                     {
                         embed.WithDescription("You lose! Karma * 0.75!");
                         await ReplyAsync("", false, embed.Build());
-                        db.Persons.First(x => x.Id == Context.User.Id).karma =
-                            Convert.ToInt32(db.Persons.First(x => x.Id == Context.User.Id).karma * 0.75f);
+                        db.Persons.First(x => x.Id == Context.User.Id).Karma =
+                            Convert.ToInt32(db.Persons.First(x => x.Id == Context.User.Id).Karma * 0.75f);
                         await db.SaveChangesAsync();
                     }
 
@@ -360,45 +353,47 @@ namespace Carma
                 case 6:
                 case 7:
                 case 8:
-                    if (db.Persons.First(x => x.Id == Context.User.Id).karma < 0)
+                    if (db.Persons.First(x => x.Id == Context.User.Id).Karma < 0)
                     {
                         embed.WithDescription("You lose! Karma * 2!");
                         await ReplyAsync("", false, embed.Build());
-                        db.Persons.First(x => x.Id == Context.User.Id).karma *= 2;
+                        db.Persons.First(x => x.Id == Context.User.Id).Karma *= 2;
                         await db.SaveChangesAsync();
                     }
                     else
                     {
                         embed.WithDescription("You lose! Karma *0.5!");
                         await ReplyAsync("", false, embed.Build());
-                        db.Persons.First(x => x.Id == Context.User.Id).karma =
-                            Convert.ToInt32(db.Persons.First(x => x.Id == Context.User.Id).karma * -0.5f);
+                        db.Persons.First(x => x.Id == Context.User.Id).Karma =
+                            Convert.ToInt32(db.Persons.First(x => x.Id == Context.User.Id).Karma * -0.5f);
                         await db.SaveChangesAsync();
                     }
 
                     break;
                 case 9:
                 case 10:
-                    if (db.Persons.First(x => x.Id == Context.User.Id).karma < 0)
+                    if (db.Persons.First(x => x.Id == Context.User.Id).Karma < 0)
                     {
                         embed.WithDescription("You won! Karma = 0!");
                         await ReplyAsync("", false, embed.Build());
-                        db.Persons.First(x => x.Id == Context.User.Id).karma = 0;
+                        db.Persons.First(x => x.Id == Context.User.Id).Karma = 0;
                         await db.SaveChangesAsync();
                     }
-                    else if (db.Persons.First(x => x.Id == Context.User.Id).karma == 0)
+                    else if (db.Persons.First(x => x.Id == Context.User.Id).Karma == 0)
                         await ReplyAsync("Oh! Your carma is 0, you can't run lottery.");
                     else
                     {
                         embed.WithDescription("You won! Karma*2!");
                         await ReplyAsync("", false, embed.Build());
-                        db.Persons.First(x => x.Id == Context.User.Id).karma *= 2;
+                        db.Persons.First(x => x.Id == Context.User.Id).Karma *= 2;
                         await db.SaveChangesAsync();
                     }
 
                     break;
             }
         }
+        
+        
 
         [Command("q", RunMode = RunMode.Async)]
         public async Task Quote(params string[] args)
@@ -407,7 +402,7 @@ namespace Carma
             ulong quotMessageId;
             try
             {
-                quotMessageId = UInt64.Parse(text[1]);
+                quotMessageId = ulong.Parse(text[1]);
             }
             catch (Exception e)
             {
@@ -465,20 +460,51 @@ namespace Carma
                 .WithTitle("Сообщение:")
                 .WithAuthor(requestedMessage.Author)
                 .WithDescription($"\n{requestedMessage.Content}");
-
+            
             await ReplyAsync("", false, embedOn.Build());
             await ReplyAsync("", false, embedReply.Build());
             await Context.Message.DeleteAsync();
         }
 
-        [Command("setkarma")]
-        public async void Setkarma(params string[] args)
+        [Command("setkarma", RunMode = RunMode.Async)]
+#pragma warning disable 1998
+        public async Task Setkarma(params string[] args)
+#pragma warning restore 1998
         {
-            long karma = Int64.Parse(Context.Message.Content.Split(" ")[1]);
+            var db = new ApplicationContext();
+            var karma = long.Parse(Context.Message.Content.Split(" ")[1]);
             foreach (var user in Context.Message.MentionedUsers)
             {
-                db.Persons.First(x => x.Id == user.Id).karma = karma;
+                db.Persons.First(x => x.Id == user.Id).Karma = karma;
             }
+        }
+
+        [Command("channel", RunMode = RunMode.Async)]
+        public async Task CreateChannel(params string[] args)
+        {
+            var channel = await Context.Guild.CreateTextChannelAsync(Context.User.Username, properties =>
+                {
+                    properties.Topic = $"Private channel of user {Context.User.Username}";
+                    properties.IsNsfw = true;
+                    properties.Name = Context.User.Username;
+                },
+                new RequestOptions()
+                {
+                    AuditLogReason = $"{Context.User.Username} has created a new text channel",
+                    CancelToken = CancellationToken.None,
+                    RetryMode = RetryMode.AlwaysRetry,
+                    Timeout = 1000,
+                    UseSystemClock = true
+                });
+            await channel.AddPermissionOverwriteAsync(Context.User, OverwritePermissions.AllowAll(channel),
+                RequestOptions.Default);
+
+
+            var embed = new EmbedBuilder
+            {
+                Color = Color.Blue, Title = "Успех", Description = $"Канал {channel.Mention} создан"
+            };
+            await ReplyAsync("", false, embed.Build());
         }
     }
 }
@@ -497,12 +523,7 @@ public class TextReader : TypeReader
     {
         public override Task<TypeReaderResult> ReadAsync(ICommandContext context, string input, IServiceProvider services)
         {
-            List<IUser> users = new List<IUser>();
-            foreach (var userId in context.Message.MentionedUserIds)
-            {
-                users.Add(context.Client.GetUserAsync(userId).Result);
-            }
-                
+            var users = context.Message.MentionedUserIds.Select(userId => context.Client.GetUserAsync(userId).Result).ToList();
             return Task.FromResult(TypeReaderResult.FromSuccess(users));
         }
     }
@@ -526,5 +547,5 @@ public class TextReader : TypeReader
     {
         [Key]
         public ulong Id { get; set; }
-        public long karma { get; set; }
+        public long Karma { get; set; }
     }
